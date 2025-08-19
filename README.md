@@ -25,7 +25,7 @@ A futuristic and cyberpunk-themed portfolio website built with Next.js, TypeScri
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/xilioscient/r1pp3r.git
+git clone https://github.com/xilioscient/r1pper.git
 cd r1pp3r
 ```
 
