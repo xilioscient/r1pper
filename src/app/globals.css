@@ -1,0 +1,200 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import './animations.css';
+
+@layer base {
+  :root {
+    --color-cyber-void: 8 12 24;
+    --color-cyber-neon: 0 255 196;
+    --color-cyber-acid: 163 255 0;
+    --color-cyber-dream: 128 0 255;
+    --color-surge: 0 191 255;
+    --color-blood: 255 0 84;
+    --font-orbitron: var(--font-orbitron);
+    --font-space-grotesk: var(--font-space-grotesk);
+  }
+
+  body {
+    @apply bg-cyber-void text-cyber-neon;
+    font-family: var(--font-space-grotesk), sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-orbitron), sans-serif;
+  }
+
+  ::selection {
+    background: rgba(var(--color-cyber-neon), 0.3);
+    color: rgb(var(--color-cyber-acid));
+  }
+}
+
+@layer components {
+  .cyber-button {
+    @apply px-6 py-3 bg-gradient-to-r from-cyber-acid to-cyber-dream text-cyber-void font-bold rounded-lg
+           transition-all duration-500 relative overflow-hidden
+           border-2 border-cyber-neon
+           hover:scale-105 active:scale-95 font-orbitron;
+    background-size: 200% 100%;
+    background-position: 100%;
+  }
+
+  .cyber-button:hover {
+    @apply shadow-glow-acid;
+    background-position: 0%;
+    animation: button-glitch 0.5s ease infinite;
+  }
+
+  .cyber-button-outline {
+    @apply px-6 py-3 bg-transparent text-cyber-neon font-bold rounded-lg
+           transition-all duration-500 relative overflow-hidden
+           border-2 border-cyber-neon
+           hover:bg-cyber-neon/10 hover:scale-105 active:scale-95 font-orbitron;
+  }
+
+  .cyber-button-outline:hover {
+    @apply border-cyber-acid text-cyber-acid shadow-glow-neon;
+    animation: button-pulse 2s ease infinite;
+  }
+
+  .cyber-card {
+    @apply bg-cyber-void/90 backdrop-blur-md rounded-lg overflow-hidden
+           border border-cyber-neon/30 transition-all duration-500
+           hover:translate-y-[-5px];
+  }
+
+  .cyber-card:hover {
+    @apply shadow-glow-acid border-cyber-acid/50;
+    animation: card-pulse 3s ease infinite;
+  }
+
+  .neon-text {
+    @apply text-cyber-neon font-orbitron;
+    text-shadow: 0 0 5px rgba(var(--color-cyber-neon), 0.5),
+                 0 0 10px rgba(var(--color-cyber-neon), 0.3),
+                 0 0 15px rgba(var(--color-cyber-neon), 0.2);
+  }
+
+  .neon-text:hover {
+    @apply text-cyber-acid;
+    text-shadow: 0 0 5px rgba(var(--color-cyber-acid), 0.5),
+                 0 0 10px rgba(var(--color-cyber-acid), 0.3),
+                 0 0 15px rgba(var(--color-cyber-acid), 0.2);
+    animation: text-glitch 0.3s ease infinite;
+  }
+
+  .form-base {
+    @apply w-full px-4 py-2 bg-cyber-void/80 border-2 border-cyber-neon/30 rounded-lg
+           text-cyber-neon placeholder-cyber-neon/50
+           focus:border-cyber-acid focus:outline-none focus:ring-2 focus:ring-cyber-dream/50 
+           transition-all duration-300 hover:border-cyber-neon/50 font-space-grotesk;
+  }
+
+  .form-input {
+    @apply form-base;
+  }
+
+  .form-input:focus {
+    @apply shadow-glow-neon;
+    animation: input-pulse 2s ease infinite;
+  }
+
+  .form-label {
+    @apply block text-cyber-acid mb-2 text-sm font-medium font-orbitron;
+  }
+
+  .form-select {
+    @apply form-base appearance-none bg-cyber-void/80;
+  }
+
+  .form-textarea {
+    @apply form-base min-h-[100px] resize-y;
+  }
+}
+
+@layer utilities {
+  .font-orbitron {
+    font-family: var(--font-orbitron), sans-serif;
+  }
+
+  .font-space-grotesk {
+    font-family: var(--font-space-grotesk), sans-serif;
+  }
+
+  .glitch {
+    @apply animate-glitch;
+  }
+
+  .neon-glow {
+    @apply animate-pulse-neon;
+  }
+
+  .shadow-glow-neon {
+    box-shadow: 0 0 10px theme('colors.cyber-neon/30'),
+                0 0 20px theme('colors.cyber-neon/20'),
+                0 0 30px theme('colors.cyber-neon/10');
+  }
+
+  .shadow-glow-dream {
+    box-shadow: 0 0 10px theme('colors.cyber-dream/30'),
+                0 0 20px theme('colors.cyber-dream/20'),
+                0 0 30px theme('colors.cyber-dream/10');
+  }
+
+  .shadow-glow-acid {
+    box-shadow: 0 0 10px theme('colors.cyber-acid/30'),
+                0 0 20px theme('colors.cyber-acid/20'),
+                0 0 30px theme('colors.cyber-acid/10');
+  }
+}
+
+@keyframes button-glitch {
+  0%, 100% { transform: translate(0); }
+  20% { transform: translate(-2px, 2px); }
+  40% { transform: translate(-2px, -2px); }
+  60% { transform: translate(2px, 2px); }
+  80% { transform: translate(2px, -2px); }
+}
+
+@keyframes button-pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+@keyframes card-pulse {
+  0%, 100% { transform: translateY(-5px) scale(1); }
+  50% { transform: translateY(-8px) scale(1.02); }
+}
+
+@keyframes text-glitch {
+  0%, 100% { transform: skew(0deg); }
+  20% { transform: skew(10deg); }
+  40% { transform: skew(-10deg); }
+  60% { transform: skew(5deg); }
+  80% { transform: skew(-5deg); }
+}
+
+@keyframes input-pulse {
+  0%, 100% { box-shadow: 0 0 10px theme('colors.cyber-neon/30'); }
+  50% { box-shadow: 0 0 20px theme('colors.cyber-neon/50'); }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgb(var(--color-cyber-void));
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(var(--color-cyber-neon));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(var(--color-cyber-dream));
+} 
