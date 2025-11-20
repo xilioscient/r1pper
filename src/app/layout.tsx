@@ -3,6 +3,7 @@ import { Orbitron, Space_Grotesk } from 'next/font/google'
 import './globals.css'
 import LiquidBackground from '@/components/effects/LiquidBackground'
 
+
 const orbitron = Orbitron({ 
   subsets: ['latin'],
   variable: '--font-orbitron',
@@ -39,6 +40,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="it">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />  
       <body className={`${orbitron.variable} ${spaceGrotesk.variable} font-sans bg-cyber-void text-cyber-neon min-h-screen relative`}>
         <div className="scanline" />
         <div className="matrix-bg fixed inset-0 pointer-events-none opacity-5" />
