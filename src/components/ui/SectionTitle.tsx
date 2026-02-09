@@ -17,7 +17,7 @@ const SectionTitle = ({ title, subtitle }: SectionTitleProps) => {
       viewport={{ once: true }}
       className="text-center mb-12"
     >
-      <h2 className="text-4xl md:text-5xl font-bold mb-4 text-cyber-cyan animate-pulse-neon">
+      <h2 className="text-4xl md:text-5xl font-bold mb-4 text-cyber-cyan">
         {title}
       </h2>
       <p className="text-cyber-magenta text-lg md:text-xl">

@@ -1,4 +1,4 @@
-/* Glitch Text Effect */
+/* Glitch Text Effect (tolti) 
 .glitch-text {
   position: relative;
   text-shadow: 0.05em 0 0 rgba(255, 0, 0, 0.75),
@@ -31,7 +31,6 @@
   opacity: 0.75;
 }
 
-/* Smaller Glitch Effect */
 .glitch-text-sm {
   position: relative;
   text-shadow: 0.03em 0 0 rgba(255, 0, 0, 0.75),
@@ -39,6 +38,7 @@
               0.015em 0.03em 0 rgba(0, 0, 255, 0.75);
   animation: glitch 750ms infinite;
 }
+*/
 
 /* Binary Rain Animation */
 .binary-rain {
@@ -150,7 +150,7 @@
     opacity: 0.2;
   }
 }
-
+/*
 .animate-pulse-slow {
   animation: pulse-slow 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-} 
+} */
