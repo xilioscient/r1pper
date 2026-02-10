@@ -9,11 +9,13 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        'cyber-black': '#000000',
-        'cyber-cyan': '#00fff5',
-        'cyber-magenta': '#ff00ff',
-        'cyber-purple': '#9600ff',
-        'cyber-blue': '#0033ff',
+        'cyber-black': '#0d0d0d',
+        'cyber-cyan': '#00ffc4',
+        'cyber-magenta': '#ff007f',
+        'cyber-purple': '#8000ff',
+        'cyber-blue': '#007fff',
+        'cyber-void': '#1a1a1a',
+        'cyber-neon': '#e6e6e6',
       },
       fontFamily: {
         cyber: ['var(--font-cyber)', 'sans-serif'],
@@ -23,6 +25,7 @@ const config: Config = {
         'glitch': 'glitch 1s infinite',
         'pulse-neon': 'pulse-neon 2s infinite',
         'float': 'float 6s ease-in-out infinite',
+        'pulse-slow': 'pulse 3s ease-in-out infinite',
       },
       keyframes: {
         glitch: {
@@ -48,11 +51,12 @@ const config: Config = {
         },
       },
       backgroundImage: {
-        'cyber-grid': "url('/images/cyber-grid.svg')",
+        'cyber-grid': "url('/images/cyber-grid.png')",
+        'binary-rain': "url('/images/binary-rain.gif')",
       },
     },
   },
   plugins: [],
 }
 
-export default config 
+export default config

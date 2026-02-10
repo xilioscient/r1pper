@@ -16,15 +16,15 @@ const SectionTitle = ({ title, subtitle }: SectionTitleProps) => {
       viewport={{ once: true }}
       className="text-center mb-12"
     >
-      <h2 className="text-4xl md:text-5xl font-bold mb-4 text-cyber-cyan">
+      <h2 className="text-5xl md:text-6xl font-extrabold mb-4 text-cyber-cyan neon-text">
         {title}
       </h2>
-      <p className="text-cyber-magenta text-lg md:text-xl">
+      <p className="text-cyber-magenta text-lg md:text-xl font-medium">
         {subtitle}
       </p>
-      <div className="w-24 h-1 bg-gradient-to-r from-cyber-purple to-cyber-blue mx-auto mt-4" />
+      <div className="w-32 h-1 bg-gradient-to-r from-cyber-purple to-cyber-blue mx-auto mt-4" />
     </motion.div>
   )
 }
 
-export default SectionTitle 
+export default SectionTitle

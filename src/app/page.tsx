@@ -7,6 +7,7 @@ import Projects from '@/components/sections/Projects'
 import Skills from '@/components/sections/Skills'
 import Team from '@/components/sections/Team'
 import FeaturedProjects from '@/components/sections/FeaturedProjects'
+import OpenAICarousel from '@/components/sections/OpenAICarousel'
 import Contact from '@/components/sections/Contact'
 import Footer from '@/components/layout/Footer'
 
@@ -19,7 +20,7 @@ export default function Home() {
       <Projects />
       <Skills />
       <Team />
-      <FeaturedProjects />
+      <OpenAICarousel />
       <Contact />
       <Footer />
     </main>
