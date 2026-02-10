@@ -1,4 +1,4 @@
-# R1PP3R - Modern Cybersecurity Portfolio
+# R1PP3R - Modern Cybersecurity Portfolio (in corso d'opera)
 
 A futuristic and cyberpunk-themed portfolio website built with Next.js, TypeScript, and Tailwind CSS.
 

@@ -19,7 +19,7 @@ export default function OpenAICarousel() {
     useEffect(() => {
         const fetchNews = async () => {
             try {
-                // Recuperiamo il feed RSS ufficiale di OpenAI tramite un convertitore JSON
+                //feed RSS ufficiale di OpenAI tramite un convertitore JSON
                 const response = await fetch(
                     'https://api.rss2json.com/v1/api.json?rss_url=https://openai.com/news/rss.xml'
                 );
