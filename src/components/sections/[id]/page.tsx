@@ -82,7 +82,7 @@ export default function ProjectPage() {
                         className="space-y-6"
                     >
                         <span className="text-cyber-magenta font-mono text-sm tracking-widest uppercase">
-              // CATEGORY: {project.category}
+                        CATEGORY: {project.category}
                         </span>
                         <h1 className="text-4xl md:text-6xl font-black italic uppercase tracking-tighter">
                             {project.title}
