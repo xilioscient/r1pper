@@ -1,21 +1,21 @@
-import { NextResponse } from 'next/server'
-import nodemailer from 'nodemailer'
+import { NextResponse } from "next/server";
+import nodemailer from "nodemailer";
 
-const EMAIL_USER = process.env.EMAIL_USER
-const EMAIL_PASS = process.env.EMAIL_PASS
+const EMAIL_USER = process.env.EMAIL_USER;
+const EMAIL_PASS = process.env.EMAIL_PASS;
 
 const transporter = nodemailer.createTransport({
-  service: 'gmail',
+  service: "gmail",
   auth: {
     user: EMAIL_USER,
     pass: EMAIL_PASS,
   },
-})
+});
 
 export async function POST(request: Request) {
   try {
-    const data = await request.json()
-    
+    const data = await request.json();
+
     const message = `
 🚀 Nuova Richiesta di Unione al Team
 
@@ -27,23 +27,23 @@ export async function POST(request: Request) {
 
 📝 Messaggio:
 ${data.message}
-    `
+    `;
 
     const mailOptions = {
       from: EMAIL_USER,
-      to: 'root.gore.it@gmail.com',
+      to: "root.gore.it@gmail.com",
       subject: `Nuova richiesta di unione al team da ${data.name}`,
       text: message,
-    }
+    };
 
-    await transporter.sendMail(mailOptions)
+    await transporter.sendMail(mailOptions);
 
-    return NextResponse.json({ success: true })
+    return NextResponse.json({ success: true });
   } catch (error) {
-    console.error('Error processing team join request:', error)
+    console.error("Error processing team join request:", error);
     return NextResponse.json(
-      { error: 'Failed to process request' },
-      { status: 500 }
-    )
+      { error: "Failed to process request" },
+      { status: 500 },
+    );
   }
-} 
+}

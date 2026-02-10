@@ -1,30 +1,34 @@
-'use client'
+"use client";
 
-import { motion } from 'framer-motion'
-import SectionTitle from '../ui/SectionTitle'
+import { motion } from "framer-motion";
+import SectionTitle from "../ui/SectionTitle";
 
 const values = [
   {
-    title: 'Verità',
-    description: 'Oltre gli schermi e i firewall, c\'è una verità che attende di essere scoperta. Il codice non mente.',
-    icon: '🔓',
+    title: "Verità",
+    description:
+      "Oltre gli schermi e i firewall, c'è una verità che attende di essere scoperta. Il codice non mente.",
+    icon: "🔓",
   },
   {
-    title: 'Conoscenza',
-    description: 'L\'informazione vuole essere libera. Il sapere è un diritto, non un privilegio da tenere sotto chiave.',
-    icon: '💡',
+    title: "Conoscenza",
+    description:
+      "L'informazione vuole essere libera. Il sapere è un diritto, non un privilegio da tenere sotto chiave.",
+    icon: "💡",
   },
   {
-    title: 'Equilibrio',
-    description: 'Tra il caos e l\'ordine, tra l\'ombra e la luce. Il vero potere sta nel saper mantenere l\'equilibrio.',
-    icon: '⚖️',
+    title: "Equilibrio",
+    description:
+      "Tra il caos e l'ordine, tra l'ombra e la luce. Il vero potere sta nel saper mantenere l'equilibrio.",
+    icon: "⚖️",
   },
   {
-    title: 'Cambiamento',
-    description: 'Il sistema non è immutabile. Ogni linea di codice può essere l\'inizio di una rivoluzione silenziosa.',
-    icon: '🔄',
+    title: "Cambiamento",
+    description:
+      "Il sistema non è immutabile. Ogni linea di codice può essere l'inizio di una rivoluzione silenziosa.",
+    icon: "🔄",
   },
-]
+];
 
 const manifesto = `
 In un mondo dove i bit valgono più dell'oro, dove i dati raccontano le nostre storie,
@@ -38,7 +42,7 @@ Un bit alla volta, una vulnerabilità alla volta, un cambiamento alla volta.
 
 La vera rivoluzione non fa rumore. Si muove nell'ombra, silenziosa ma inesorabile.
 Come il codice che scorre sullo schermo, invisibile ai più, ma capace di cambiare tutto.
-`
+`;
 
 export default function About() {
   return (
@@ -47,7 +51,7 @@ export default function About() {
         <div className="cyber-grid opacity-10 animate-pulse-slow" />
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-cyber-void/50 to-cyber-void" />
       </div>
-      
+
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionTitle
           title="Pensieri"
@@ -97,11 +101,12 @@ export default function About() {
           className="mt-16 text-center"
         >
           <p className="text-lg text-cyber-acid font-mono">
-                      "Il controllo è un'illusione. La libertà è la realtà. "
-                      <br />Alessandro Faraone
+            "Il controllo è un'illusione. La libertà è la realtà. "
+            <br />
+            Alessandro Faraone
           </p>
         </motion.div>
       </div>
     </section>
-  )
-} 
+  );
+}

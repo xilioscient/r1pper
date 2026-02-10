@@ -1,68 +1,69 @@
-'use client'
+"use client";
 
-import { useState } from 'react'
-import { motion } from 'framer-motion'
-import { fadeIn } from '@/lib/animations'
-import SectionTitle from '../ui/SectionTitle'
-import JoinTeamForm from '../forms/JoinTeamForm'
-import Image from 'next/image'
-import { FaGithub, FaTwitter, FaLinkedin, FaInstagram } from 'react-icons/fa';
-import { FaThreads } from 'react-icons/fa6'; // Threads è disponibile nelle Font Awesome 6
+import { useState } from "react";
+import { motion } from "framer-motion";
+import { fadeIn } from "@/lib/animations";
+import SectionTitle from "../ui/SectionTitle";
+import JoinTeamForm from "../forms/JoinTeamForm";
+import Image from "next/image";
+import { FaGithub, FaTwitter, FaLinkedin, FaInstagram } from "react-icons/fa";
+import { FaThreads } from "react-icons/fa6"; // Threads è disponibile nelle Font Awesome 6
+import SocialLinks from "./SocialLinks";
 
 const teamMembers = [
   {
-    name: 'Alessandro Faraone',
-    role: 'Studente presso itis nullo baldini',
-    image: '/team/alessandro.jpg',
-    bio: 'Appassionato di sicurezza informatica e pentesting, con particolare interesse per lo sviluppo di applicazioni sicure o ulteriori appliccazzioni per testarle . Attualmente concentrato sullo studio di vulnerabilità web e mobile, con esperienza pratica in CTF e bug bounty.',
+    name: "Alessandro Faraone",
+    role: "Studente presso itis nullo baldini",
+    image: "/team/alessandro.jpg",
+    bio: "Appassionato di sicurezza informatica e pentesting, con particolare interesse per lo sviluppo di applicazioni sicure o ulteriori appliccazzioni per testarle . Attualmente concentrato sullo studio di vulnerabilità web e mobile, con esperienza pratica in CTF e bug bounty.",
     links: {
-      github: 'https://github.com/xilioscient',
-      linkedin: '#'
+      github: "https://github.com/xilioscient",
+      linkedin: "#",
     },
     skills: [
-      'Penetration Testing',
-      'Sviluppo Sicuro',
-      'Analisi Malware',
-      'Reverse Engineering',
-      'Web Security'
-    ]
-  }
-]
+      "Penetration Testing",
+      "Sviluppo Sicuro",
+      "Analisi Malware",
+      "Reverse Engineering",
+      "Web Security",
+    ],
+  },
+];
 
 const skills = [
-  { name: 'Analisi di Sistema', level: 80 },
-  { name: 'Architetture di Rete', level: 85 },
-  { name: 'Sviluppo Sicuro', level: 95 },
-  { name: 'Reverse Engineering', level: 60 },
-  { name: 'Analisi Binaria', level: 75 },
-  { name: 'Ricerca Vulnerabilità', level: 85 },
-]
+  { name: "Analisi di Sistema", level: 80 },
+  { name: "Architetture di Rete", level: 85 },
+  { name: "Sviluppo Sicuro", level: 95 },
+  { name: "Reverse Engineering", level: 60 },
+  { name: "Analisi Binaria", level: 75 },
+  { name: "Ricerca Vulnerabilità", level: 85 },
+];
 
 const tools = [
-  { 
-    name: 'Analisi Web', 
-    description: 'Esplorazione e comprensione delle architetture web',
-    image: '/images/projects/magicstudio-art.jpg'
+  {
+    name: "Analisi Web",
+    description: "Esplorazione e comprensione delle architetture web",
+    image: "/images/projects/magicstudio-art.jpg",
   },
-  { 
-    name: 'Testing', 
-    description: 'Analisi approfondita dei sistemi',
-    image: '/images/projects/magicstudio-art(1).jpg'
+  {
+    name: "Testing",
+    description: "Analisi approfondita dei sistemi",
+    image: "/images/projects/magicstudio-art(1).jpg",
   },
-  { 
-    name: 'Network', 
-    description: 'Studio delle comunicazioni di rete',
-    image: '/images/projects/UaN9AAzx.jpg'
+  {
+    name: "Network",
+    description: "Studio delle comunicazioni di rete",
+    image: "/images/projects/UaN9AAzx.jpg",
   },
-  { 
-    name: 'Binary', 
-    description: 'Analisi a basso livello',
-    image: '/images/projects/Jj_5i311.jpg'
-  }
-]
+  {
+    name: "Binary",
+    description: "Analisi a basso livello",
+    image: "/images/projects/Jj_5i311.jpg",
+  },
+];
 
 const Team = () => {
-  const [showJoinForm, setShowJoinForm] = useState(false)
+  const [showJoinForm, setShowJoinForm] = useState(false);
 
   return (
     <section id="team" className="py-20 relative overflow-hidden">
@@ -106,69 +107,35 @@ const Team = () => {
 
             <div className="prose text-cyber-neon/80 max-w-none mb-8 font-mono">
               <p>
-                              Studente del quarto anno ITIS Nullo baldini di ravenna
-                              appassionato di cybersecurity e intelligenza artificiale
-                          </p>
+                Studente del quarto anno ITIS Nullo baldini di ravenna
+                appassionato di cybersecurity e intelligenza artificiale
+              </p>
               <br></br>
-                          <p>
-                              Attualmente attivo su piattaforme come TryHackMe e HackTheBox, sono costantemente
-                              alla ricerca di un team per competizioni come <a href="https://www.romhack.io/" target="_blank" rel="noopener noreferrer" >RomHack</a>
-                              e altri eventi CTF e/o bug bounty.
-                          </p>
-                <br></br>
-                              <p>
-                              Non solo Red Team: mi alleno quotidianamente  risolvendo sfide su
-                              <span className="text-white font-semibold"> LeetCode</span> e
-                              <span className="text-white font-semibold"> Codewars</span>.
-                              Mi focalizzo sull'ottimizzazione della complessità computazionale e sull'implementazione di strutture dati efficienti,
-                              mantenendo un mindset analitico essenziale per il reverse engineering e lo sviluppo di exploit.
-                          </p>
+              <p>
+                Attualmente attivo su piattaforme come TryHackMe e HackTheBox,
+                sono costantemente alla ricerca di un team per competizioni come{" "}
+                <a
+                  href="https://www.romhack.io/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  RomHack
+                </a>
+                e altri eventi CTF e/o bug bounty.
+              </p>
+              <br></br>
+              <p>
+                Non solo Red Team: mi alleno quotidianamente risolvendo sfide su
+                <span className="text-white font-semibold"> LeetCode</span> e
+                <span className="text-white font-semibold"> Codewars</span>. Mi
+                focalizzo sull'ottimizzazione della complessità computazionale e
+                sull'implementazione di strutture dati efficienti, mantenendo un
+                mindset analitico essenziale per il reverse engineering e lo
+                sviluppo di exploit.
+              </p>
             </div>
 
-                      <div className="flex justify-center space-x-6">
-                          <a
-                              href="https://github.com/xilioscient"
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="text-cyber-neon hover:text-cyber-acid transform hover:scale-110 transition-all"
-                          >
-                              <FaGithub className="w-8 h-8" />
-                          </a>
-                          <a
-                              href="https://twitter.com/xilioscient"
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="text-cyber-neon hover:text-cyber-acid transform hover:scale-110 transition-all"
-                          >
-                              <FaTwitter className="w-8 h-8" />
-                          </a>
-                          <a
-                              href="https://linkedin.com/in/alessandro-faraone"
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="text-cyber-neon hover:text-cyber-acid transform hover:scale-110 transition-all"
-                          >
-                              <FaLinkedin className="w-8 h-8" />
-                          </a>
-                          {/* Instagram */}
-                          <a
-                              href="https://instagram.com/dentroilvoid"
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="text-cyber-neon hover:text-cyber-acid transform hover:scale-110 transition-all"
-                          >
-                              <FaInstagram className="w-8 h-8" />
-                          </a>
-                          {/* Threads */}
-                          <a
-                              href="https://threads.net/@dentroilvoid"
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="text-cyber-neon hover:text-cyber-acid transform hover:scale-110 transition-all"
-                          >
-                              <FaThreads className="w-8 h-8" />
-                          </a>
-                      </div>
+                      <SocialLinks />
           </motion.div>
 
           {/* Skills Section */}
@@ -181,7 +148,9 @@ const Team = () => {
           >
             {/* Skills Bars */}
             <div className="cyber-card p-6">
-              <h4 className="text-xl font-bold mb-6 text-cyber-acid">Conoscenze</h4>
+              <h4 className="text-xl font-bold mb-6 text-cyber-acid">
+                Conoscenze
+              </h4>
               <div className="space-y-4">
                 {skills.map((skill, index) => (
                   <motion.div
@@ -192,8 +161,12 @@ const Team = () => {
                     transition={{ duration: 0.5, delay: index * 0.1 }}
                   >
                     <div className="flex justify-between mb-2">
-                      <span className="text-cyber-neon font-mono">{skill.name}</span>
-                      <span className="text-cyber-acid font-mono">{skill.level}%</span>
+                      <span className="text-cyber-neon font-mono">
+                        {skill.name}
+                      </span>
+                      <span className="text-cyber-acid font-mono">
+                        {skill.level}%
+                      </span>
                     </div>
                     <div className="h-2 bg-cyber-void rounded-full overflow-hidden border border-cyber-neon/30">
                       <motion.div
@@ -211,12 +184,14 @@ const Team = () => {
 
             {/* Tools Grid */}
             <div className="cyber-card p-6">
-              <h4 className="text-xl font-bold mb-6 text-cyber-acid">Strumenti</h4>
+              <h4 className="text-xl font-bold mb-6 text-cyber-acid">
+                Strumenti
+              </h4>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {tools.map((tool, index) => (
                   <motion.div
                     key={tool.name}
-                    initial={{ opacity: 0, scale: 1}}
+                    initial={{ opacity: 0, scale: 1 }}
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }}
                     className="group relative  border:black  "
@@ -231,10 +206,7 @@ const Team = () => {
                       <div className="absolute inset-0 bg-gradient-to-t from-cyber-void via-transparent to-transparent opacity-80" />
                     </div>
                     <div className="absolute inset-0 flex flex-col justify-end p-4">
-                      <h5 className="text-lg font-bold  mb-2 ">
-                        {tool.name}
-                      </h5>
-
+                      <h5 className="text-lg font-bold  mb-2 ">{tool.name}</h5>
                     </div>
                     <div className="absolute inset-0 border-2 border-cyber-acid/0 " />
                   </motion.div>
@@ -251,18 +223,17 @@ const Team = () => {
         </div>
 
         <motion.div
-          variants={fadeIn('up', 0.4)}
+          variants={fadeIn("up", 0.4)}
           initial="hidden"
           whileInView="show"
           viewport={{ once: true }}
-          className="mt-16 text-center">
-
-           <JoinTeamForm />
-          
+          className="mt-16 text-center"
+        >
+          <JoinTeamForm />
         </motion.div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default Team 
+export default Team;

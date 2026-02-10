@@ -24,12 +24,14 @@ A futuristic and cyberpunk-themed portfolio website built with Next.js, TypeScri
 ## Getting Started
 
 1. Clone the repository:
+
 ```bash
 git clone https://github.com/xilioscient/r1pper.git
 cd r1pp3r
 ```
 
 2. Install dependencies:
+
 ```bash
 npm install
 # or
@@ -37,6 +39,7 @@ yarn install
 ```
 
 3. Run the development server:
+
 ```bash
 npm run dev
 # or
@@ -87,4 +90,4 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details. 
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.

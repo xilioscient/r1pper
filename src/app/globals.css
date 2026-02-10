@@ -3,86 +3,91 @@
 @tailwind utilities;
 
 @layer base {
-    :root {
-        --color-cyber-void: 8 12 24;
-        --color-cyber-neon: 0 255 196;
-        --color-cyber-acid: 163 255 0;
-        --color-cyber-dream: 128 0 255;
-        --font-orbitron: var(--font-orbitron);
-        --font-space-grotesk: var(--font-space-grotesk);
-    }
+  :root {
+    --color-cyber-void: 8 12 24;
+    --color-cyber-neon: 0 255 196;
+    --color-cyber-acid: 163 255 0;
+    --color-cyber-dream: 128 0 255;
+    --font-orbitron: var(--font-orbitron);
+    --font-space-grotesk: var(--font-space-grotesk);
+  }
 
-    body {
-        @apply bg-cyber-void text-cyber-neon;
-        font-family: var(--font-space-grotesk), sans-serif;
-    }
+  body {
+    @apply bg-cyber-void text-cyber-neon;
+    font-family: var(--font-space-grotesk), sans-serif;
+  }
 
-    h1, h2, h3, h4, h5, h6 {
-        font-family: var(--font-orbitron), sans-serif;
-    }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-orbitron), sans-serif;
+  }
 
-    ::selection {
-        background: rgba(var(--color-cyber-neon), 0.2);
-        color: rgb(var(--color-cyber-acid));
-    }
+  ::selection {
+    background: rgba(var(--color-cyber-neon), 0.2);
+    color: rgb(var(--color-cyber-acid));
+  }
 }
 
 @layer components {
-    .cyber-button {
-        @apply px-6 py-3 rounded-lg font-orbitron font-semibold bg-cyber-neon text-cyber-void border border-cyber-neon transition-all duration-200;
-    }
+  .cyber-button {
+    @apply px-6 py-3 rounded-lg font-orbitron font-semibold bg-cyber-neon text-cyber-void border border-cyber-neon transition-all duration-200;
+  }
 
-        .cyber-button:hover {
-            @apply bg-cyber-acid border-cyber-acid;
-        }
+  .cyber-button:hover {
+    @apply bg-cyber-acid border-cyber-acid;
+  }
 
-    .cyber-button-outline {
-        @apply px-6 py-3 rounded-lg font-orbitron font-semibold bg-transparent text-cyber-neon border border-cyber-neon transition-all duration-200;
-    }
+  .cyber-button-outline {
+    @apply px-6 py-3 rounded-lg font-orbitron font-semibold bg-transparent text-cyber-neon border border-cyber-neon transition-all duration-200;
+  }
 
-        .cyber-button-outline:hover {
-            @apply border-cyber-acid text-cyber-acid;
-        }
+  .cyber-button-outline:hover {
+    @apply border-cyber-acid text-cyber-acid;
+  }
 
-    .cyber-card {
-        @apply bg-cyber-void/90 border border-cyber-neon/20 rounded-lg p-4 transition-colors duration-200;
-    }
+  .cyber-card {
+    @apply bg-cyber-void/90 border border-cyber-neon/20 rounded-lg p-4 transition-colors duration-200;
+  }
 
-        .cyber-card:hover {
-            @apply border-cyber-acid/40;
-        }
+  .cyber-card:hover {
+    @apply border-cyber-acid/40;
+  }
 
-    .form-base {
-        @apply w-full px-4 py-2 rounded-lg bg-cyber-void/80 border border-cyber-neon/20 text-cyber-neon placeholder-cyber-neon/40 focus:border-cyber-acid focus:outline-none transition-colors duration-200;
-    }
+  .form-base {
+    @apply w-full px-4 py-2 rounded-lg bg-cyber-void/80 border border-cyber-neon/20 text-cyber-neon placeholder-cyber-neon/40 focus:border-cyber-acid focus:outline-none transition-colors duration-200;
+  }
 
-    .form-input {
-        @apply form-base;
-    }
+  .form-input {
+    @apply form-base;
+  }
 
-    .form-select {
-        @apply form-base appearance-none;
-    }
+  .form-select {
+    @apply form-base appearance-none;
+  }
 
-    .form-textarea {
-        @apply form-base min-h-[100px] resize-y;
-    }
+  .form-textarea {
+    @apply form-base min-h-[100px] resize-y;
+  }
 
-    .form-label {
-        @apply block mb-2 text-sm font-orbitron text-cyber-acid;
-    }
+  .form-label {
+    @apply block mb-2 text-sm font-orbitron text-cyber-acid;
+  }
 }
 
 @layer utilities {
-    .font-orbitron {
-        font-family: var(--font-orbitron), sans-serif;
-    }
+  .font-orbitron {
+    font-family: var(--font-orbitron), sans-serif;
+  }
 
-    .font-space-grotesk {
-        font-family: var(--font-space-grotesk), sans-serif;
-    }
+  .font-space-grotesk {
+    font-family: var(--font-space-grotesk), sans-serif;
+  }
 }
 
 html {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }

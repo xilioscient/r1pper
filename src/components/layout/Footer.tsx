@@ -1,5 +1,8 @@
 import { motion } from 'framer-motion'
 
+import SocialLinks from '../sections/SocialLinks'
+
+
 import { FaGithub, FaTwitter, FaLinkedin, FaInstagram } from 'react-icons/fa';
 import { FaThreads } from 'react-icons/fa6'; // Threads è disponibile nelle Font Awesome 6
 
@@ -27,85 +30,8 @@ export default function Footer() {
   return (
     <footer className="relative bg-cyber-black border-t border-cyber-cyan/30">
       <div className="absolute inset-0 cyber-grid opacity-5" />
-      
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {/* Logo and Description */}
-          <div className="space-y-4">
-            <h3 className="text-2xl font-bold neon-text">
-              THE<span className="text-cyber-magenta">EYE</span>
-            </h3>
-            <p className="text-cyber-cyan/80 max-w-xs">
-              Exploring the depths of digital security through innovation and expertise.
-            </p>
-          </div>
 
-          {/* Quick Links */}
-          <div>
-            <h4 className="text-cyber-magenta font-bold mb-4">Quick Links</h4>
-            <ul className="space-y-2">
-              {quickLinks.map((link) => (
-                <li key={link.name}>
-                  <a
-                    href={link.href}
-                    className="text-cyber-cyan/80 hover:text-cyber-cyan transition-colors"
-                  >
-                    {link.name}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Social Links */}
-          <div>
-            <h4 className="text-cyber-magenta font-bold mb-4">Connect</h4>
-                      <div className="flex justify-center space-x-6">
-                          <a
-                              href="https://github.com/xilioscient"
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="text-cyber-neon hover:text-cyber-acid transform hover:scale-110 transition-all"
-                          >
-                              <FaGithub className="w-8 h-8" />
-                          </a>
-                          <a
-                              href="https://twitter.com/xilioscient"
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="text-cyber-neon hover:text-cyber-acid transform hover:scale-110 transition-all"
-                          >
-                              <FaTwitter className="w-8 h-8" />
-                          </a>
-                          <a
-                              href="https://linkedin.com/in/alessandro-faraone"
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="text-cyber-neon hover:text-cyber-acid transform hover:scale-110 transition-all"
-                          >
-                              <FaLinkedin className="w-8 h-8" />
-                          </a>
-                          {/* Instagram */}
-                          <a
-                              href="https://instagram.com/dentroilvoid"
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="text-cyber-neon hover:text-cyber-acid transform hover:scale-110 transition-all"
-                          >
-                              <FaInstagram className="w-8 h-8" />
-                          </a>
-                          {/* Threads */}
-                          <a
-                              href="https://threads.net/@dentroilvoid"
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="text-cyber-neon hover:text-cyber-acid transform hover:scale-110 transition-all"
-                          >
-                              <FaThreads className="w-8 h-8" />
-                          </a>
-                      </div>
-          </div>
-        </div>
+          <SocialLinks />
 
         {/* Copyright */}
         <div className="mt-12 pt-8 border-t border-cyber-cyan/30 text-center">

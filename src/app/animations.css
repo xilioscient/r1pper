@@ -45,13 +45,28 @@
 }
 
 @keyframes flicker {
-  0%, 100% { opacity: 1; }
-  92% { opacity: 1; }
-  93% { opacity: 0.3; }
-  94% { opacity: 0.7; }
-  96% { opacity: 0.3; }
-  97% { opacity: 0.6; }
-  98% { opacity: 0.8; }
+  0%,
+  100% {
+    opacity: 1;
+  }
+  92% {
+    opacity: 1;
+  }
+  93% {
+    opacity: 0.3;
+  }
+  94% {
+    opacity: 0.7;
+  }
+  96% {
+    opacity: 0.3;
+  }
+  97% {
+    opacity: 0.6;
+  }
+  98% {
+    opacity: 0.8;
+  }
 }
 
 @keyframes matrix-rain {
@@ -64,15 +79,18 @@
 }
 
 @keyframes cyber-pulse {
-  0%, 100% {
-    box-shadow: 0 0 5px rgba(0, 255, 196, 0.5),
-                0 0 10px rgba(0, 255, 196, 0.3),
-                0 0 15px rgba(0, 255, 196, 0.2);
+  0%,
+  100% {
+    box-shadow:
+      0 0 5px rgba(0, 255, 196, 0.5),
+      0 0 10px rgba(0, 255, 196, 0.3),
+      0 0 15px rgba(0, 255, 196, 0.2);
   }
   50% {
-    box-shadow: 0 0 10px rgba(0, 255, 196, 0.8),
-                0 0 20px rgba(0, 255, 196, 0.6),
-                0 0 30px rgba(0, 255, 196, 0.4);
+    box-shadow:
+      0 0 10px rgba(0, 255, 196, 0.8),
+      0 0 20px rgba(0, 255, 196, 0.6),
+      0 0 30px rgba(0, 255, 196, 0.4);
   }
 }
 /*
@@ -102,7 +120,8 @@
 }
 */
 .matrix-bg {
-  background: linear-gradient(180deg,
+  background: linear-gradient(
+    180deg,
     rgba(0, 255, 196, 0.1) 0%,
     rgba(163, 255, 0, 0.1) 100%
   );

@@ -1,8 +1,8 @@
-'use client'
+"use client";
 
-import { motion } from 'framer-motion'
-import { Canvas } from '@react-three/fiber'
-import { Stars } from '@react-three/drei'
+import { motion } from "framer-motion";
+import { Canvas } from "@react-three/fiber";
+import { Stars } from "@react-three/drei";
 
 export default function Hero() {
   return (
@@ -23,15 +23,15 @@ export default function Hero() {
       </div>
 
       {/* Animated Grid Overlay */}
-      <motion.div 
+      <motion.div
         className="absolute inset-0 cyber-grid opacity-20"
         animate={{
-          backgroundPosition: ['0px 0px', '100px 100px'],
+          backgroundPosition: ["0px 0px", "100px 100px"],
         }}
         transition={{
           duration: 20,
           repeat: Infinity,
-          ease: "linear"
+          ease: "linear",
         }}
       />
 
@@ -51,8 +51,8 @@ export default function Hero() {
             <span className="text-cyber-acid">Sviluppo Sicuro</span>
           </h1>
           <p className="text-xl sm:text-2xl text-cyber-neon/80 mb-12 max-w-3xl mx-auto">
-            Studente appassionato di sicurezza informatica, specializzato in pentesting
-            e sviluppo di applicazioni sicure.
+            Studente appassionato di sicurezza informatica, specializzato in
+            pentesting e sviluppo di applicazioni sicure.
           </p>
         </motion.div>
 
@@ -71,12 +71,12 @@ export default function Hero() {
             <span className="relative z-10">Progetti</span>
             <motion.div
               className="absolute inset-0 bg-cyber-magenta/20"
-              initial={{ x: '-100%' }}
-              whileHover={{ x: '100%' }}
+              initial={{ x: "-100%" }}
+              whileHover={{ x: "100%" }}
               transition={{ duration: 0.5 }}
             />
           </motion.a>
-          
+
           <motion.a
             href="#contact"
             className="cyber-button-outline group relative overflow-hidden"
@@ -86,13 +86,13 @@ export default function Hero() {
             <span className="relative z-10">Contattami</span>
             <motion.div
               className="absolute inset-0 bg-cyber-cyan/20"
-              initial={{ x: '-100%' }}
-              whileHover={{ x: '100%' }}
+              initial={{ x: "-100%" }}
+              whileHover={{ x: "100%" }}
               transition={{ duration: 0.5 }}
             />
           </motion.a>
         </motion.div>
       </div>
     </section>
-  )
-} 
+  );
+}

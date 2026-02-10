@@ -1,7 +1,7 @@
-'use client'
+"use client";
 
-import { motion } from 'framer-motion'
-import SectionTitle from '../ui/SectionTitle'
+import { motion } from "framer-motion";
+import SectionTitle from "../ui/SectionTitle";
 
 const skillCategories = [
   {
@@ -40,7 +40,7 @@ const skillCategories = [
       { name: "Digital Forensics", level: 52 },
     ],
   },
-]
+];
 
 export default function Skills() {
   return (
@@ -49,7 +49,7 @@ export default function Skills() {
         <div className="cyber-grid opacity-10 animate-pulse-slow" />
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-cyber-void/50 to-cyber-void" />
       </div>
-      
+
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionTitle
           title="Competenze"
@@ -64,7 +64,7 @@ export default function Skills() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: categoryIndex * 0.2 }}
-                  className="p-6 hover:shadow-glow-neon transition-all duration-500"
+              className="p-6 hover:shadow-glow-neon transition-all duration-500"
             >
               <h3 className="text-2xl font-bold text-cyber-acid mb-6 neon-text">
                 {category.title}
@@ -77,13 +77,13 @@ export default function Skills() {
                     initial={{ opacity: 0, x: -20 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
-                    transition={{ delay: (categoryIndex * 0.2) + (skillIndex * 0.1) }}
+                    transition={{
+                      delay: categoryIndex * 0.2 + skillIndex * 0.1,
+                    }}
                     className="group"
                   >
                     <div className="flex justify-between items-center mb-2">
-                      <span className="text-cyber-neon ">
-                        {skill.name}
-                      </span>
+                      <span className="text-cyber-neon ">{skill.name}</span>
                       <span className="text-cyber-dream font-mono">
                         {skill.level}%
                       </span>
@@ -96,8 +96,8 @@ export default function Skills() {
                         viewport={{ once: true }}
                         transition={{
                           duration: 1.5,
-                          delay: (categoryIndex * 0.2) + (skillIndex * 0.1),
-                          ease: "easeOut"
+                          delay: categoryIndex * 0.2 + skillIndex * 0.1,
+                          ease: "easeOut",
                         }}
                       />
                     </div>
@@ -116,11 +116,13 @@ export default function Skills() {
           className="mt-16 text-center"
         >
           <p className="text-lg text-cyber-neon/90 max-w-3xl mx-auto">
-            Costantemente in aggiornamento sulle ultime tecnologie e minacce nel campo della sicurezza informatica.
-            La pratica continua e la partecipazione a CTF e bug bounty contribuiscono al miglioramento costante delle competenze.
+            Costantemente in aggiornamento sulle ultime tecnologie e minacce nel
+            campo della sicurezza informatica. La pratica continua e la
+            partecipazione a CTF e bug bounty contribuiscono al miglioramento
+            costante delle competenze.
           </p>
         </motion.div>
       </div>
     </section>
-  )
-} 
+  );
+}
