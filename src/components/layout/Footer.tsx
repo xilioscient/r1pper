@@ -1,5 +1,8 @@
 import { motion } from 'framer-motion'
 
+import { FaGithub, FaTwitter, FaLinkedin, FaInstagram } from 'react-icons/fa';
+import { FaThreads } from 'react-icons/fa6'; // Threads è disponibile nelle Font Awesome 6
+
 const socialLinks = [
   {
     name: 'GitHub',
@@ -57,28 +60,57 @@ export default function Footer() {
           {/* Social Links */}
           <div>
             <h4 className="text-cyber-magenta font-bold mb-4">Connect</h4>
-            <div className="flex space-x-4">
-              {socialLinks.map((social) => (
-                <motion.a
-                  key={social.name}
-                  href={social.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-cyber-cyan hover:text-cyber-magenta transition-colors"
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  {social.icon}
-                </motion.a>
-              ))}
-            </div>
+                      <div className="flex justify-center space-x-6">
+                          <a
+                              href="https://github.com/xilioscient"
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="text-cyber-neon hover:text-cyber-acid transform hover:scale-110 transition-all"
+                          >
+                              <FaGithub className="w-8 h-8" />
+                          </a>
+                          <a
+                              href="https://twitter.com/xilioscient"
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="text-cyber-neon hover:text-cyber-acid transform hover:scale-110 transition-all"
+                          >
+                              <FaTwitter className="w-8 h-8" />
+                          </a>
+                          <a
+                              href="https://linkedin.com/in/alessandro-faraone"
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="text-cyber-neon hover:text-cyber-acid transform hover:scale-110 transition-all"
+                          >
+                              <FaLinkedin className="w-8 h-8" />
+                          </a>
+                          {/* Instagram */}
+                          <a
+                              href="https://instagram.com/dentroilvoid"
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="text-cyber-neon hover:text-cyber-acid transform hover:scale-110 transition-all"
+                          >
+                              <FaInstagram className="w-8 h-8" />
+                          </a>
+                          {/* Threads */}
+                          <a
+                              href="https://threads.net/@dentroilvoid"
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="text-cyber-neon hover:text-cyber-acid transform hover:scale-110 transition-all"
+                          >
+                              <FaThreads className="w-8 h-8" />
+                          </a>
+                      </div>
           </div>
         </div>
 
         {/* Copyright */}
         <div className="mt-12 pt-8 border-t border-cyber-cyan/30 text-center">
           <p className="text-cyber-cyan/60">
-            © {new Date().getFullYear()} THE EYE. All rights reserved.
+            © {new Date().getFullYear()} THE EYE.
           </p>
         </div>
       </div>

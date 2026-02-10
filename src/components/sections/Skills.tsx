@@ -64,7 +64,7 @@ export default function Skills() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: categoryIndex * 0.2 }}
-              className="cyber-card p-6 hover:shadow-glow-neon transition-all duration-500"
+                  className="p-6 hover:shadow-glow-neon transition-all duration-500"
             >
               <h3 className="text-2xl font-bold text-cyber-acid mb-6 neon-text">
                 {category.title}
@@ -81,7 +81,7 @@ export default function Skills() {
                     className="group"
                   >
                     <div className="flex justify-between items-center mb-2">
-                      <span className="text-cyber-neon group-hover:text-cyber-acid transition-colors duration-300">
+                      <span className="text-cyber-neon ">
                         {skill.name}
                       </span>
                       <span className="text-cyber-dream font-mono">

@@ -82,29 +82,8 @@ const Contact = () => {
             variants={fadeIn('left', 0.3)}
             initial="hidden"
             whileInView="show"
-            viewport={{ once: true }}
-          >
-            {!showConsultationForm ? (
-              <div className="text-center space-y-8">
-                <div className="bg-gradient-to-r from-cyber-acid to-cyber-dream p-[2px] rounded-lg">
-                  <div className="bg-cyber-void p-6 rounded-lg">
-                    <h3 className="text-xl font-bold text-cyber-neon mb-4">Richiedi una Consulenza</h3>
-                    <p className="text-cyber-neon/80 mb-6">
-                      Hai un progetto in mente o necessiti di una consulenza di sicurezza?
-                      Compila il form e ti risponderò il prima possibile.
-                    </p>
-                    <button
-                      onClick={() => setShowConsultationForm(true)}
-                      className="cyber-button animate-pulse-neon"
-                    >
-                      Richiedi Consulenza
-                    </button>
-                  </div>
-                </div>
-              </div>
-            ) : (
+            viewport={{ once: true }}>
               <ConsultationForm />
-            )}
           </motion.div>
         </div>
       </div>

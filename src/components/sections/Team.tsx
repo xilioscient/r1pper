@@ -6,7 +6,8 @@ import { fadeIn } from '@/lib/animations'
 import SectionTitle from '../ui/SectionTitle'
 import JoinTeamForm from '../forms/JoinTeamForm'
 import Image from 'next/image'
-import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa'
+import { FaGithub, FaTwitter, FaLinkedin, FaInstagram } from 'react-icons/fa';
+import { FaThreads } from 'react-icons/fa6'; // Threads è disponibile nelle Font Awesome 6
 
 const teamMembers = [
   {
@@ -105,43 +106,69 @@ const Team = () => {
 
             <div className="prose text-cyber-neon/80 max-w-none mb-8 font-mono">
               <p>
-                "Non siamo ciò che sembriamo. In un mondo di dati e codice, 
-                cerco le verità nascoste tra gli 1 e gli 0. La curiosità è la mia guida,
-                l'etica il mio confine."
-              </p>
-              <p className="mt-4">
-                "Il sistema è vulnerabile, ma non sono qui per distruggere. 
-                Sono qui per comprendere, per proteggere, per migliorare. 
-                Ogni bug è una lezione, ogni exploit una responsabilità."
-              </p>
+                              Studente del quarto anno ITIS Nullo baldini di ravenna
+                              appassionato di cybersecurity e intelligenza artificiale
+                          </p>
+              <br></br>
+                          <p>
+                              Attualmente attivo su piattaforme come TryHackMe e HackTheBox, sono costantemente
+                              alla ricerca di un team per competizioni come <a href="https://www.romhack.io/" target="_blank" rel="noopener noreferrer" >RomHack</a>
+                              e altri eventi CTF e/o bug bounty.
+                          </p>
+                <br></br>
+                              <p>
+                              Non solo Red Team: mi alleno quotidianamente  risolvendo sfide su
+                              <span className="text-white font-semibold"> LeetCode</span> e
+                              <span className="text-white font-semibold"> Codewars</span>.
+                              Mi focalizzo sull'ottimizzazione della complessità computazionale e sull'implementazione di strutture dati efficienti,
+                              mantenendo un mindset analitico essenziale per il reverse engineering e lo sviluppo di exploit.
+                          </p>
             </div>
 
-            <div className="flex justify-center space-x-6">
-              <a
-                href="https://github.com/xilioscient"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-cyber-neon hover:text-cyber-acid transform hover:scale-110 transition-all"
-              >
-                <FaGithub className="w-8 h-8" />
-              </a>
-              <a
-                href="https://twitter.com/xilioscient"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-cyber-neon hover:text-cyber-acid transform hover:scale-110 transition-all"
-              >
-                <FaTwitter className="w-8 h-8" />
-              </a>
-              <a
-                href="https://linkedin.com/in/alessandro-faraone"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-cyber-neon hover:text-cyber-acid transform hover:scale-110 transition-all"
-              >
-                <FaLinkedin className="w-8 h-8" />
-              </a>
-            </div>
+                      <div className="flex justify-center space-x-6">
+                          <a
+                              href="https://github.com/xilioscient"
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="text-cyber-neon hover:text-cyber-acid transform hover:scale-110 transition-all"
+                          >
+                              <FaGithub className="w-8 h-8" />
+                          </a>
+                          <a
+                              href="https://twitter.com/xilioscient"
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="text-cyber-neon hover:text-cyber-acid transform hover:scale-110 transition-all"
+                          >
+                              <FaTwitter className="w-8 h-8" />
+                          </a>
+                          <a
+                              href="https://linkedin.com/in/alessandro-faraone"
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="text-cyber-neon hover:text-cyber-acid transform hover:scale-110 transition-all"
+                          >
+                              <FaLinkedin className="w-8 h-8" />
+                          </a>
+                          {/* Instagram */}
+                          <a
+                              href="https://instagram.com/dentroilvoid"
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="text-cyber-neon hover:text-cyber-acid transform hover:scale-110 transition-all"
+                          >
+                              <FaInstagram className="w-8 h-8" />
+                          </a>
+                          {/* Threads */}
+                          <a
+                              href="https://threads.net/@dentroilvoid"
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="text-cyber-neon hover:text-cyber-acid transform hover:scale-110 transition-all"
+                          >
+                              <FaThreads className="w-8 h-8" />
+                          </a>
+                      </div>
           </motion.div>
 
           {/* Skills Section */}
@@ -189,30 +216,27 @@ const Team = () => {
                 {tools.map((tool, index) => (
                   <motion.div
                     key={tool.name}
-                    initial={{ opacity: 0, scale: 0.9 }}
+                    initial={{ opacity: 0, scale: 1}}
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: index * 0.1 }}
-                    className="group relative overflow-hidden rounded-lg border border-cyber-neon/30 hover:border-cyber-acid transition-all duration-500"
+                    className="group relative  border:black  "
                   >
                     <div className="relative aspect-video w-full overflow-hidden">
                       <Image
                         src={tool.image}
                         alt={tool.name}
                         fill
-                        className="object-cover transition-transform duration-500 group-hover:scale-110"
+                        className="object-cover "
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-cyber-void via-transparent to-transparent opacity-80" />
                     </div>
                     <div className="absolute inset-0 flex flex-col justify-end p-4">
-                      <h5 className="text-lg font-bold text-cyber-acid mb-2 group-hover:text-cyber-neon transition-colors">
+                      <h5 className="text-lg font-bold  mb-2 ">
                         {tool.name}
                       </h5>
-                      <p className="text-sm text-cyber-neon/80 font-mono opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                        {tool.description}
-                      </p>
+
                     </div>
-                    <div className="absolute inset-0 border-2 border-cyber-acid/0 group-hover:border-cyber-acid/50 transition-all duration-500" />
+                    <div className="absolute inset-0 border-2 border-cyber-acid/0 " />
                   </motion.div>
                 ))}
               </div>
@@ -231,23 +255,10 @@ const Team = () => {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true }}
-          className="mt-16 text-center"
-        >
-          {!showJoinForm ? (
-            <button
-              onClick={() => setShowJoinForm(true)}
-              className="cyber-button-outline animate-pulse-neon"
-            >
-              Unisciti al Team
-            </button>
-          ) : (
-            <div className="max-w-4xl mx-auto">
-              <h3 className="text-2xl font-bold text-cyber-neon mb-8 animate-pulse-neon">
-                Candidati per unirti al team
-              </h3>
-              <JoinTeamForm />
-            </div>
-          )}
+          className="mt-16 text-center">
+
+           <JoinTeamForm />
+          
         </motion.div>
       </div>
     </section>

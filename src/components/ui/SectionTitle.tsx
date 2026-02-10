@@ -12,8 +12,7 @@ const SectionTitle = ({ title, subtitle }: SectionTitleProps) => {
   return (
     <motion.div
       variants={fadeIn('up', 0)}
-      initial="hidden"
-      whileInView="show"
+      initial="show"
       viewport={{ once: true }}
       className="text-center mb-12"
     >

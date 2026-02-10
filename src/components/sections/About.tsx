@@ -78,7 +78,7 @@ export default function About() {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               className="cyber-card p-6 group hover:transform hover:scale-105 transition-all duration-300"
             >
-              <div className="text-4xl mb-4 group-hover:animate-bounce">{value.icon}</div>
+              <div className="text-4xl mb-4 ">{value.icon}</div>
               <h3 className="text-xl font-semibold mb-2 text-cyber-acid group-hover:text-cyber-neon transition-colors">
                 {value.title}
               </h3>
@@ -97,7 +97,8 @@ export default function About() {
           className="mt-16 text-center"
         >
           <p className="text-lg text-cyber-acid font-mono">
-            "Il controllo è un'illusione. La libertà è la realtà."
+                      "Il controllo è un'illusione. La libertà è la realtà. "
+                      <br />Alessandro Faraone
           </p>
         </motion.div>
       </div>
