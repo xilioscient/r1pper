@@ -1,13 +1,13 @@
-"use client"; // <--- QUESTA RIGA È FONDAMENTALE
+"use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
 const navItems = [
   { name: "Home", href: "/" },
   { name: "About", href: "#about" },
-  { name: "Projects", href: "#Projects" },
+  { name: "Projects", href: "#projects" },
   { name: "Skills", href: "#skills" },
   { name: "Team", href: "#team" },
   { name: "Contact", href: "#contact" },
@@ -16,92 +16,93 @@ const navItems = [
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
-  useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
-    }
-  }, [isOpen]);
-
   return (
-    <nav className="sticky top-0 w-full z-50 bg-gradient-to-r from-cyber-purple to-cyber-blue backdrop-blur-md border-b border-cyber-cyan/50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
+    <div className="relative w-full flex justify-center pt-0 z-50">
+      {/* Container della Navbar - Non scorre, resta in cima */}
+      <nav className="relative w-full max-w-5xl bg-black/80 backdrop-blur-md border-b-2 border-cyber-yellow clip-path-cyber-header">
+        <div className="flex justify-between items-center h-16 px-10">
           {/* Logo */}
-          <Link href="/" className="flex-shrink-0">
-            <h1 className="text-3xl font-extrabold neon-text">
-              R1PP<span className="text-cyber-magenta">3R</span>
-            </h1>
+          <Link
+            href="/"
+            className="text-2xl font-black tracking-tighter text-cyber-yellow hover:opacity-80 transition"
+          >
+            R1PP<span className="text-white">3R</span>
           </Link>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:block">
-            <div className="ml-10 flex items-baseline space-x-6">
-              {navItems.map((item) => (
-                <Link
-                  key={item.name}
-                  href={item.href}
-                  className="px-4 py-2 text-lg font-semibold text-cyber-cyan hover:text-cyber-magenta transition-colors duration-300 relative group"
-                >
-                  {item.name}
-                  <motion.span
-                    className="absolute bottom-0 left-0 w-0 h-1 bg-cyber-magenta group-hover:w-full transition-all duration-300"
-                    layoutId="underline"
-                  />
-                </Link>
-              ))}
-            </div>
-          </div>
-
-          {/* Mobile Menu Button */}
-          <div className="-mr-2 flex md:hidden">
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              className="inline-flex items-center justify-center p-2 rounded-md text-cyber-cyan hover:text-cyber-magenta focus:outline-none focus:ring-2 focus:ring-inset focus:ring-cyber-magenta"
-            >
-              <span className="sr-only">Open main menu</span>
-              {/* Icon */}
-              <svg
-                className="h-6 w-6"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                aria-hidden="true"
+          {/* Desktop Navigation - Meta schermo */}
+          <div className="hidden md:flex items-center space-x-8">
+            {navItems.map((item) => (
+              <Link
+                key={item.name}
+                href={item.href}
+                className="relative text-[11px] uppercase tracking-[0.25em] font-bold text-white hover:text-cyber-yellow transition-colors group"
               >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M4 6h16M4 12h16m-7 6h7"
-                />
-              </svg>
-            </button>
+                {item.name}
+                {/* Decorazione sotto i link */}
+                <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-cyber-yellow group-hover:w-full transition-all duration-300" />
+              </Link>
+            ))}
           </div>
-        </div>
-      </div>
 
-      {/* Mobile menu */}
-      <motion.div
-        className={`md:hidden ${isOpen ? "block" : "hidden"}`}
-        initial={{ opacity: 0, y: -10 }}
-        animate={{ opacity: isOpen ? 1 : 0, y: isOpen ? 0 : -10 }}
-        transition={{ duration: 0.2 }}
-      >
-        <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-cyber-black/90 border-b border-cyber-cyan/30">
-          {navItems.map((item) => (
-            <Link
-              key={item.name}
-              href={item.href}
-              className="block px-3 py-2 text-base font-medium text-cyber-cyan hover:text-cyber-magenta transition-colors duration-300"
-              onClick={() => setIsOpen(false)}
+          {/* Mobile Toggle */}
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            className="md:hidden text-cyber-yellow"
+          >
+            <svg
+              className="w-8 h-8"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
             >
-              {item.name}
-            </Link>
-          ))}
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d={isOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16m-7 6h7"}
+              />
+            </svg>
+          </button>
         </div>
-      </motion.div>
-    </nav>
+
+        {/* Elemento Decorativo: Taglio a 45 gradi tipico Cyberpunk */}
+        <div className="absolute top-0 right-0 w-8 h-8 bg-cyber-yellow clip-path-accent hidden md:block" />
+      </nav>
+
+      {/* Menu Mobile Overlay */}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            className="absolute top-16 left-0 w-full bg-black/95 border-b border-cyber-yellow flex flex-col items-center py-10 space-y-6 md:hidden overflow-hidden"
+          >
+            {navItems.map((item) => (
+              <Link
+                key={item.name}
+                href={item.href}
+                onClick={() => setIsOpen(false)}
+                className="text-xl font-bold text-white uppercase tracking-widest hover:text-cyber-yellow"
+              >
+                {item.name}
+              </Link>
+            ))}
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      <style jsx global>{`
+        /* Taglio diagonale sui bordi esterni della navbar */
+        .clip-path-cyber-header {
+          clip-path: polygon(0 0, 100% 0, 100% 100%, 5% 100%, 0 70%);
+        }
+
+        /* Accento decorativo giallo nell'angolo */
+        .clip-path-accent {
+          clip-path: polygon(100% 0, 0 0, 100% 100%);
+        }
+      `}</style>
+    </div>
   );
 }

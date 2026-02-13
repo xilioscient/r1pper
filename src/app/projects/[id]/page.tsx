@@ -1,34 +1,10 @@
-﻿"use client";
+"use client";
 
 import { useParams } from "next/navigation";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { projects } from "@/app/data/projects";
-/**
- * 
- * export default function ProjectPage() {
-    const params = useParams()
-    const id = params?.id // Recuperiamo l'id dall'oggetto params
-    
-    // Cerchiamo convertendo entrambi in stringa per evitare mismatch di tipo
-    const project = projects.find(p => p.id.toString() === id);
 
-    // Se il progetto non viene trovato dopo il primo render
-    if (!project) {
-        return (
-            <div className="min-h-screen flex flex-col items-center justify-center bg-cyber-black">
-                <h1 className="text-cyber-cyan font-mono text-2xl mb-4 animate-pulse">
-                    404_PROJECT_NOT_FOUND
-                </h1>
-                <Link href="/projects" className="text-cyber-magenta hover:underline font-mono">
-                    {">"} RETURN_TO_CORE_DATABASE
-                </Link>
-            </div>
-        )
-    }
-    // ... resto del codice
- * @returns
- */
 export default function ProjectPage() {
   const params = useParams();
   const id = params?.id;
@@ -58,13 +34,13 @@ export default function ProjectPage() {
       <div className="relative z-10 max-w-5xl mx-auto px-4 py-12">
         {/* Navigazione */}
         <Link
-          href="/projects"
+          href="/"
           className="inline-flex items-center gap-2 text-cyber-cyan hover:text-cyber-magenta transition-colors mb-12 font-mono text-sm group"
         >
           <span className="group-hover:-translate-x-2 transition-transform">
             ←
           </span>{" "}
-          RETURN_TO_ARCHIVE
+          torna alla home
         </Link>
 
         {/* Hero Section */}
@@ -123,7 +99,7 @@ export default function ProjectPage() {
 
             <section>
               <h2 className="text-2xl font-bold text-cyber-cyan mb-6 flex items-center gap-2">
-                <span className="w-8 h-px bg-cyber-cyan" /> TECHNICAL_REPORT
+                <span className="w-8 h-px bg-cyber-cyan" /> report
               </h2>
               <p className="text-gray-400 leading-relaxed font-light bg-cyber-darker p-6 border-l-4 border-cyber-cyan">
                 {project.details.tech}
@@ -134,7 +110,7 @@ export default function ProjectPage() {
           <aside className="space-y-8">
             <div className="p-6 border border-white/10 bg-white/5">
               <h3 className="text-sm font-mono text-cyber-magenta mb-4 uppercase tracking-widest">
-                Stack_Tools
+                Stack operativo
               </h3>
               <div className="flex flex-wrap gap-2">
                 {project.tags.map((tag) => (
