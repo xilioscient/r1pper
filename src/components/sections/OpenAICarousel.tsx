@@ -1,6 +1,6 @@
 ﻿"use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { motion } from "framer-motion";
 
 interface NewsItem {
@@ -12,14 +12,16 @@ interface NewsItem {
 }
 
 export default function OpenAICarousel() {
-  // Inizializziamo sempre come array vuoto [] per evitare l'errore .map()
   const [news, setNews] = useState<NewsItem[]>([]);
   const [loading, setLoading] = useState(true);
+
+  // Ref per il vincolo del trascinamento
+  const carouselRef = useRef<HTMLDivElement>(null);
+  const [width, setWidth] = useState(0);
 
   useEffect(() => {
     const fetchNews = async () => {
       try {
-        //feed RSS ufficiale di OpenAI tramite un convertitore JSON
         const response = await fetch(
           "https://api.rss2json.com/v1/api.json?rss_url=https://openai.com/news/rss.xml",
         );
@@ -38,6 +40,15 @@ export default function OpenAICarousel() {
     fetchNews();
   }, []);
 
+  // Calcolo della larghezza per il trascinamento quando le news sono caricate
+  useEffect(() => {
+    if (carouselRef.current) {
+      setWidth(
+        carouselRef.current.scrollWidth - carouselRef.current.offsetWidth,
+      );
+    }
+  }, [news]);
+
   if (loading) {
     return (
       <div className="text-center p-10 neon-text">Caricamento News...</div>
@@ -45,9 +56,8 @@ export default function OpenAICarousel() {
   }
 
   return (
-    <section className="py-16 px-6 bg-black">
+    <section className="py-16 px-6 bg-black overflow-hidden">
       <div className="max-w-7xl mx-auto">
-        {/* Header con linea dinamica */}
         <div className="flex items-center justify-between mb-12">
           <h2 className="text-5xl font-black uppercase tracking-tighter italic text-white">
             OpenAI <span className="text-cyber-neon">Archive</span>
@@ -60,9 +70,16 @@ export default function OpenAICarousel() {
           />
         </div>
 
-        {/* Container Carosello */}
-        <div className="relative group">
-          <div className="flex space-x-8 overflow-x-auto pb-12 pt-4 scrollbar-hide snap-x snap-mandatory pointer-events-auto">
+        {/* Container Carosello con Drag Logic */}
+        <motion.div
+          ref={carouselRef}
+          className="relative cursor-grab active:cursor-grabbing overflow-hidden"
+        >
+          <motion.div
+            drag="x"
+            dragConstraints={{ right: 0, left: -width }}
+            className="flex space-x-8 pb-12 pt-4"
+          >
             {news.length > 0 ? (
               news.map((item, index) => (
                 <motion.div
@@ -72,21 +89,18 @@ export default function OpenAICarousel() {
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   whileHover={{ y: -10 }}
-                  className="snap-center min-w-[320px] md:min-w-[450px] relative group/card"
+                  className="min-w-[320px] md:min-w-[450px] relative group/card pointer-events-none"
                 >
-                  {/* Effetto Glow Esterno basato sul tuo colore neon */}
                   <div
                     className="absolute -inset-1 rounded-xl blur opacity-10 group-hover/card:opacity-40 transition duration-500"
                     style={{ backgroundColor: `rgb(var(--color-cyber-neon))` }}
                   />
 
-                  <div className="relative h-full bg-gray-950 border border-white/5 p-8 rounded-xl overflow-hidden shadow-2xl">
-                    {/* ID Decorativo */}
+                  <div className="relative h-full bg-gray-950 border border-white/5 p-8 rounded-xl overflow-hidden shadow-2xl pointer-events-auto">
                     <div className="absolute top-0 right-0 p-3 text-[10px] font-mono opacity-20 text-white">
                       OAI_MNFST_{index}
                     </div>
 
-                    {/* Data con bordo neon */}
                     <span
                       className="inline-block px-3 py-1 mb-6 border text-[10px] font-bold uppercase tracking-widest bg-opacity-10"
                       style={{
@@ -110,7 +124,6 @@ export default function OpenAICarousel() {
                       {item.description.replace(/<[^>]*>?/gm, "")}
                     </p>
 
-                    {/* Bottone con interazione neon */}
                     <div className="flex items-center justify-between mt-auto">
                       <a
                         href={item.link}
@@ -139,9 +152,20 @@ export default function OpenAICarousel() {
                 </p>
               </div>
             )}
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </div>
+
+      <style jsx global>{`
+        /* Nasconde la barra di scorrimento ovunque */
+        .scrollbar-hide::-webkit-scrollbar {
+          display: none;
+        }
+        .scrollbar-hide {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
+        }
+      `}</style>
     </section>
   );
 }
